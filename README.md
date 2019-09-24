@@ -11,6 +11,9 @@ Freshly added: Regex-checking on all input-fields to determine a loose index for
 
 ## Installation
 
+### Compiler
+Please disable Compiler. In our experience it doens't give performance wins and costs a lot of time while debugging.
+
 ### Installation with modman
 
 Clone it within modman via `https://` or `git://`:
@@ -26,6 +29,22 @@ Copy all the files in your magento root directory
 
 Clean the cache after installation!
 
+#### Contacts form modifications
+
+Copy the file `app/design/frontend/{base_or_rwd}/default/template/contacts/form.phtml` to your own theme and insert the code
+
+     <?php echo $this->getChildHtml('form_fields_before') ?>
+     
+within the `<form> ... </form>` tag.
+
+#### Newsletter Subscription Form Modifications
+
+Copy the file `app/design/frontend/{base_or_rwd}/default/template/newsletter/subscribe.phtml` to your own theme and insert the code
+
+     <?php echo $this->getChildHtml('form_fields_before') ?>
+     
+within the `<form> ... </form>` tag.
+
 ## Testing
 
 After the Installation you should be able to find a input field with the id="url" in the Customer Register and in the Product Review Form, which should be hidden with our JS.
@@ -39,6 +58,7 @@ After the Installation you should be able to find a input field with the id="url
 - Andreas Emer
 - Bastian Ike
 - Fabian Blechschmidt
+- Sven Reichel
 
 ### Current Status of Project
 

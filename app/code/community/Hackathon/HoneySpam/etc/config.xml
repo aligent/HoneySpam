@@ -28,7 +28,7 @@
 <config>
     <modules>
         <Hackathon_HoneySpam>
-            <version>0.1.0</version>
+            <version>1.3.0</version>
         </Hackathon_HoneySpam>
     </modules>
     <global>
@@ -53,16 +53,16 @@
             <controller_action_predispatch_customer_account_createpost>
                 <observers>
                     <hackathon_honeyspam>
-                        <class>Hackathon_HoneySpam_Model_Observer</class>
+                        <class>hackathon_honeyspam/observer</class>
                         <method>controllerActionPredispatchCustomerAccountCreatepost</method>
                     </hackathon_honeyspam>
                 </observers>
             </controller_action_predispatch_customer_account_createpost>
-            
+
             <controller_action_predispatch_review_product_post>
                 <observers>
                     <hackathon_honeyspam>
-                        <class>Hackathon_HoneySpam_Model_Observer</class>
+                        <class>hackathon_honeyspam/observer</class>
                         <method>controllerActionPredispatchBlockReviewForm</method>
                     </hackathon_honeyspam>
                 </observers>
@@ -71,7 +71,7 @@
             <controller_action_predispatch_customer_account_create>
                 <observers>
                     <hackathon_honeyspam>
-                        <class>Hackathon_HoneySpam_Model_Observer</class>
+                        <class>hackathon_honeyspam/observer</class>
                         <method>controllerActionPredispatchCustomerAccountCreate</method>
                     </hackathon_honeyspam>
                 </observers>
@@ -85,6 +85,33 @@
                     </hackathon_honeyspam>
                 </observers>
             </controller_action_predispatch_blog_post_view>
+
+            <controller_action_predispatch_customer_account_forgotpasswordpost>
+                <observers>
+                    <hackathon_honeyspam>
+                        <class>hackathon_honeyspam/observer</class>
+                        <method>controllerActionPredispatchCustomerAccountForgotPasswordPost</method>
+                    </hackathon_honeyspam>
+                </observers>
+            </controller_action_predispatch_customer_account_forgotpasswordpost>
+
+            <controller_action_predispatch_contacts_index_post>
+                <observers>
+                    <hackathon_honeyspam>
+                        <class>hackathon_honeyspam/observer</class>
+                        <method>controllerActionPredispatchContactsIndexPost</method>
+                    </hackathon_honeyspam>
+                </observers>
+            </controller_action_predispatch_contacts_index_post>
+
+            <controller_action_predispatch_newsletter_subscriber_new>
+                <observers>
+                    <hackathon_honeyspam>
+                        <class>hackathon_honeyspam/observer</class>
+                        <method>controllerActionPredispatchNewsletterSubscriberNew</method>
+                    </hackathon_honeyspam>
+                </observers>
+            </controller_action_predispatch_newsletter_subscriber_new>
         </events>
         <layout>
             <updates>
@@ -111,6 +138,8 @@
                 <honeypotAccountCreateTime>5</honeypotAccountCreateTime>
                 <honeypotName>url</honeypotName>
                 <spamIndexLevel>2.5</spamIndexLevel>
+                <enableLogging>0</enableLogging>
+                <logfile>honeyspam.log</logfile>
             </honeyspam>
         </hackathon>
     </default>

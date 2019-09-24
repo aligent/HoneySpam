@@ -38,7 +38,7 @@
             <label>HoneySpam</label>
             <tab>hackathon</tab>
             <frontend_type>text</frontend_type>
-            <sort_order>10</sort_order>
+            <sort_order>100</sort_order>
             <show_in_default>1</show_in_default>
             <show_in_website>1</show_in_website>
             <show_in_store>1</show_in_store>
@@ -64,7 +64,8 @@
                         <honeypotName>
                             <label>Hidden field name</label>
                             <frontend_type>text</frontend_type>
-                            <sort_order>20</sort_order>
+                            <sort_order>20</sort_order> 
+                            <validate>validate-xml-identifier</validate>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -84,6 +85,7 @@
                         <honeypotAccountCreateTime>
                             <label>Minimum time for registration in seconds</label>
                             <frontend_type>text</frontend_type>
+                            <validate>validate-digits</validate>
                             <sort_order>40</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
@@ -105,12 +107,34 @@
                             <label>Set max. spam index trust level</label>
                             <comment>An index of 2.5 should be enough to block average spam logins The lower the level, the higher the level, the more spam gets through</comment>
                             <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
                             <sort_order>60</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                             <depends><enableSpamIndexing>1</enableSpamIndexing></depends>
                         </spamIndexLevel>
+
+                        <enableLogging>
+                            <label>Enable honeypot logging</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enableLogging>
+
+                        <logfile>
+                            <label>Logfile</label>
+                            <comment>Allowed file extensions: log, txt, html, csv</comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </logfile>
                     </fields>
                 </honeyspam>
             </groups>

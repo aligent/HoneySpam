@@ -24,6 +24,8 @@
  */
 
 document.observe('dom:loaded', function () {
-    $('url').hide();
+    var mhhsInput = $$('.mhhs-input');
+    if (mhhsInput.length > 0) {
+        mhhsInput.each(Element.hide);
+    }
 });
-
