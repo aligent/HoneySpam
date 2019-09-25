@@ -37,7 +37,7 @@ class Hackathon_HoneySpam_Model_Checker extends Mage_Core_Model_Abstract
         $emailprefix = explode('@', $params['email']);
         $emailprefix = $emailprefix[0];
 
-        $params = [$firstname, $lastname, $emailprefix];
+        $params = array ($firstname, $lastname, $emailprefix);
 
         return $this->check($firstname, $lastname, $emailprefix, $params);
     }
